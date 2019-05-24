@@ -21,7 +21,8 @@ C:\Projects\task_copy_cs\task_vs\task_copy_files\obj\Debug\task_copy_files.exe
 C:\Projects\task_copy_cs\task_vs\task_copy_files\obj\Debug\task_copy_files.pdb
 C:\Projects\task_copy_cs\task_vs\task_copy_files\bin\Debug\task_copy_files.exe
 C:\Projects\task_copy_cs\task_vs\task_copy_files\bin\Debug\task_copy_files.pdb
-C:\Projects\task_copy_cs\task_vs\task_copy_files\obj\Debug\task_copy_files.csprojResolveAssemblyReference.cache
 C:\Projects\task_copy_cs\task_vs\task_copy_files\obj\Debug\task_copy_files.MainForm.resources
 C:\Projects\task_copy_cs\task_vs\task_copy_files\obj\Debug\task_copy_files.Properties.Resources.resources
 C:\Projects\task_copy_cs\task_vs\task_copy_files\obj\Debug\task_copy_files.csproj.GenerateResource.Cache
+C:\Projects\task_copy_cs\task_vs\task_copy_files\obj\Debug\task_copy_files.csprojAssemblyReference.cache
+C:\Projects\task_copy_cs\task_vs\task_copy_files\obj\Debug\task_copy_files.csproj.CoreCompileInputs.cache

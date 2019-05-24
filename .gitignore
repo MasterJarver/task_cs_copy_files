@@ -1,1 +1,2 @@
-./task_copy_files/bin
+task_copy_files/bin/*
+.vs/
