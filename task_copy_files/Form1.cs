@@ -56,7 +56,7 @@ namespace task_copy_files
                 File.Copy(files[i], directory_for_copy + @"\" + fileName, true);
                 progressBar1.Value++;
                 listBox1.Items.Add(fileName);
-                await Task.Delay(1000);
+                await Task.Delay(1000); // test
             }
         }
         private string from_dir_name; // имя папки, которую нужно копировать
