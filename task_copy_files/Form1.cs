@@ -41,6 +41,8 @@ namespace task_copy_files
 
         async private void copy_Click(object sender, EventArgs e)
         {
+            progressBar1.Value = 0;
+            listBox1.Items.Clear();
             // string[] files = Directory.GetFiles(@"C:\1", "*.txt"); // получаем список всех файлов
             string[] files = Directory.GetFiles(from_path, "*");
             directory_for_copy = Directory.CreateDirectory(to_path + @"\" + from_dir_name).FullName;
@@ -52,9 +54,9 @@ namespace task_copy_files
                 string fileName = Path.GetFileName(files[i]);
                 file_name.Text = "File Name: " + fileName;
                 File.Copy(files[i], directory_for_copy + @"\" + fileName, true);
-                await Task.Delay(1000);
                 progressBar1.Value++;
                 listBox1.Items.Add(fileName);
+                await Task.Delay(1000);
             }
         }
         private string from_dir_name; // имя папки, которую нужно копировать
