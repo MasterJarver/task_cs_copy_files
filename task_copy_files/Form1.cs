@@ -8,7 +8,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace task_copy_files
 {
     public partial class MainForm : Form
@@ -25,7 +24,7 @@ namespace task_copy_files
             {
                 text_from.Text = dialog.SelectedPath;
                 from_path = dialog.SelectedPath;
-                from_dir_name = new System.IO.DirectoryInfo(dialog.SelectedPath).Name;
+                from_dir_name = new DirectoryInfo(dialog.SelectedPath).Name;
             }
         }
 
@@ -36,7 +35,7 @@ namespace task_copy_files
             {
                 text_to.Text = dialog.SelectedPath;
                 to_path = dialog.SelectedPath;
-                to_dir_name = new System.IO.DirectoryInfo(dialog.SelectedPath).Name;
+                to_dir_name = new DirectoryInfo(dialog.SelectedPath).Name;
             }
         }
 
@@ -44,13 +43,16 @@ namespace task_copy_files
         {
             // string[] files = Directory.GetFiles(@"C:\1", "*.txt"); // получаем список всех файлов
             string[] files = Directory.GetFiles(from_path, "*");
-            Directory.CreateDirectory(to_path + @"\" + from_dir_name);
+            directory_for_copy = Directory.CreateDirectory(to_path + @"\" + from_dir_name).FullName;
             int qt = files.Length;
-
             progressBar1.Maximum = qt; // устанавливаем максимальное значение прогресс бара по кол. файлов
             for(int i = 0; i < qt; i++)
             {
                 file_name.Text = "File: " + files[i];
+                string fl = files[i];
+                // тут надо узнать имя 
+                string fileName = Path.GetFileName(files[i]);
+                File.Copy(files[i], directory_for_copy + @"\" + fileName);
                 progressBar1.Value++;
                 await Task.Delay(1000);
             }
@@ -59,5 +61,6 @@ namespace task_copy_files
         private string from_path; // путь к папке, которую нужно копировать
         private string to_dir_name; // имя папки в которую нужно копировать
         private string to_path; // путь к папке в которую нужно копировать
+        private string directory_for_copy; // путь к папке, в которую нужно копировать файлы
     }
 }
