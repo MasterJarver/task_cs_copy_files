@@ -48,13 +48,13 @@ namespace task_copy_files
             progressBar1.Maximum = qt; // устанавливаем максимальное значение прогресс бара по кол. файлов
             for(int i = 0; i < qt; i++)
             {
-                file_name.Text = "File: " + files[i];
-                string fl = files[i];
-                // тут надо узнать имя 
+                // string fl = files[i];
                 string fileName = Path.GetFileName(files[i]);
-                File.Copy(files[i], directory_for_copy + @"\" + fileName);
-                progressBar1.Value++;
+                file_name.Text = "File Name: " + fileName;
+                File.Copy(files[i], directory_for_copy + @"\" + fileName, true);
                 await Task.Delay(1000);
+                progressBar1.Value++;
+                listBox1.Items.Add(fileName);
             }
         }
         private string from_dir_name; // имя папки, которую нужно копировать
