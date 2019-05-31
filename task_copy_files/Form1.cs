@@ -43,14 +43,12 @@ namespace task_copy_files
         {
             progressBar1.Value = 0;
             listBox1.Items.Clear();
-            // string[] files = Directory.GetFiles(@"C:\1", "*.txt"); // получаем список всех файлов
             string[] files = Directory.GetFiles(fromPath, "*");
             directoryForCopy = Directory.CreateDirectory(toPath + @"\" + fromDirName).FullName;
             int qt = files.Length;
             progressBar1.Maximum = qt; // устанавливаем максимальное значение прогресс бара по кол. файлов
             for(int i = 0; i < qt; i++)
             {
-                // string fl = files[i];
                 string fileName = Path.GetFileName(files[i]);
                 file_name.Text = "File Name: " + fileName;
                 File.Copy(files[i], directoryForCopy + @"\" + fileName, true);
