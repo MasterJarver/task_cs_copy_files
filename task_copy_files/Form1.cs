@@ -38,8 +38,7 @@ namespace task_copy_files
                 toDirName = new DirectoryInfo(dialog.SelectedPath).Name;
             }
         }
-
-        async private void copy_Click(object sender, EventArgs e)
+        async void DoWork()
         {
             progressBar1.Value = 0;
             listBox1.Items.Clear();
@@ -47,15 +46,22 @@ namespace task_copy_files
             directoryForCopy = Directory.CreateDirectory(toPath + @"\" + fromDirName).FullName;
             int qt = files.Length;
             progressBar1.Maximum = qt; // устанавливаем максимальное значение прогресс бара по кол. файлов
-            for(int i = 0; i < qt; i++)
+            for (int i = 0; i < qt; i++)
             {
                 string fileName = Path.GetFileName(files[i]);
                 file_name.Text = "File Name: " + fileName;
-                File.Copy(files[i], directoryForCopy + @"\" + fileName, true);
+                await Task.Run(() =>
+                {
+                    File.Copy(files[i], directoryForCopy + @"\" + fileName, true);
+                });
                 progressBar1.Value++;
                 listBox1.Items.Add(fileName);
-                await Task.Delay(1000); // test
+                await Task.Delay(2000); // test
             }
+        }
+        private void copy_Click(object sender, EventArgs e)
+        {
+            DoWork();
         }
         private string fromDirName; // имя папки, которую нужно копировать
         private string fromPath; // путь к папке, которую нужно копировать
