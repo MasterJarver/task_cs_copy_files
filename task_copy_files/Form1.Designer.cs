@@ -35,7 +35,8 @@
             this.copy = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.file_name = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // from
@@ -99,20 +100,21 @@
             this.file_name.TabIndex = 6;
             this.file_name.Text = "file_name";
             // 
-            // listBox1
+            // dataGridView1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(12, 120);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(425, 173);
-            this.listBox1.TabIndex = 7;
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 120);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(144, 179);
+            this.dataGridView1.TabIndex = 7;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(588, 369);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.file_name);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.copy);
@@ -125,6 +127,7 @@
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Task C# Copy Files";
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -139,7 +142,7 @@
         private System.Windows.Forms.Button copy;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label file_name;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
 

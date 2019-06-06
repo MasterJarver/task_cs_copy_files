@@ -41,7 +41,9 @@ namespace task_copy_files
         async void DoWork()
         {
             progressBar1.Value = 0;
-            listBox1.Items.Clear();
+            // listBox1.Items.Clear();
+            dataGridView1.Rows.Clear(); // удаляет все записи из таблицы
+            dataGridView1.Columns.Add("Files", "Files");
             string[] files = Directory.GetFiles(fromPath, "*");
             directoryForCopy = Directory.CreateDirectory(toPath + @"\" + fromDirName).FullName;
             int qt = files.Length;
@@ -55,8 +57,9 @@ namespace task_copy_files
                     File.Copy(files[i], directoryForCopy + @"\" + fileName, true);
                 });
                 progressBar1.Value++;
-                listBox1.Items.Add(fileName);
-                await Task.Delay(2000); // test
+                // listBox1.Items.Add(fileName);
+                dataGridView1.Rows.Add(fileName);
+                await Task.Delay(1000); // test
             }
         }
         private void copy_Click(object sender, EventArgs e)
